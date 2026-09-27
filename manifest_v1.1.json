@@ -1,13 +1,13 @@
 {
   "name": "SMLIGHT.SLWF-01Pro",
-  "version": "2.4",
+  "version": "2.5",
   "builds": [
     {
       "chipFamily": "ESP8266",
       "ota": {
-        "md5": "43a7e01916bcc8f46ba5fd06aefa3730",
-        "path": "https://github.com/smlight-tech/slwf-01pro-esphome/releases/download/build-20260827082204/slwf01pro_v1.1.bin",
-        "release_url": "https://github.com/smlight-tech/slwf-01pro-esphome/releases/tag/build-20260827082204",
+        "md5": "fa36c6fc637389165071865e8a8cadbb",
+        "path": "https://github.com/smlight-tech/slwf-01pro-esphome/releases/download/build-20260927094900/slwf01pro_v1.1.bin",
+        "release_url": "https://github.com/smlight-tech/slwf-01pro-esphome/releases/tag/build-20260927094900",
         "summary": "SMLIGHT SLWF-01Pro slwf01pro_v1.1 firmware"
       }
     }
