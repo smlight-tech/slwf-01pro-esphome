@@ -3,7 +3,7 @@ esphome:
   name_add_mac_suffix: true
   project:
     name: SMLIGHT.SLWF-01Pro
-    version: "2.4"
+    version: "2.5"
 
 esp8266:
     board: esp12e
