@@ -1,4 +1,9 @@
-# CI validation dependencies. Pinned to current stable major versions.
-# Used by .github/workflows/validate.yml to cache pip downloads.
+# CI validation dependencies. Also used by build-and-release.yml to build the firmware.
+#
+# The esphome range is a rolling minor window: each new minor moves both bounds
+# and lands as a reviewed PR. A year-wide upper bound would let any 2026.x
+# release install itself with no review, changing the firmware the devices poll.
+#
+# ESPHome 2026.7+ requires Python >=3.12,<3.15.
 yamllint>=1.38,<2
-esphome>=2026.7,<2027
+esphome>=2026.10.0,<2026.11

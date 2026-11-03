@@ -1,0 +1,43 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":dependencyDashboard",
+    ":semanticCommits"
+  ],
+  "schedule": ["before 5am on monday"],
+  "dependencyDashboardTitle": "Dependency Dashboard",
+  "dependencyDashboard": true,
+  "dependencyDashboardApproval": true,
+  "prCreation": "status-success",
+  "prConcurrentLimit": 5,
+  "prHourlyLimit": 2,
+  "rangeStrategy": "bump",
+  "packageRules": [
+    {
+      "matchManagers": ["pip_requirements"],
+      "matchPackageNames": ["esphome"],
+      "versioning": "pep440",
+      "rangeStrategy": "bump",
+      "separateMajorMinor": false,
+      "ignoreUnstable": true,
+      "minimumReleaseAge": "7 days",
+      "semanticCommitType": "chore",
+      "semanticCommitScope": "deps"
+    },
+    {
+      "matchManagers": ["pip_requirements"],
+      "matchPackageNames": ["yamllint"],
+      "versioning": "pep440",
+      "rangeStrategy": "bump",
+      "ignoreUnstable": true,
+      "semanticCommitType": "chore",
+      "semanticCommitScope": "deps"
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "semanticCommitType": "chore",
+      "semanticCommitScope": "deps"
+    }
+  ]
+}

@@ -27,7 +27,7 @@ concurrency:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 30
 
     steps:
       - name: Checkout repository
@@ -72,6 +72,22 @@ jobs:
             echo "::group::Validating $config"
             if ! esphome config "$config"; then
               echo "::error::esphome config failed for $config"
+              status=1
+            fi
+            echo "::endgroup::"
+          done
+          exit $status
+
+      # `esphome config` never builds C++, so a broken ESPHome bump would
+      # pass it and only fail on main, after the OTA manifest was
+      # regenerated. `esphome compile` builds without flashing.
+      - name: esphome compile (build firmware without flashing)
+        run: |
+          status=0
+          for config in slwf01pro_v1.1.yaml slwf01pro_v2.1.yaml; do
+            echo "::group::Compiling $config"
+            if ! esphome compile "$config"; then
+              echo "::error::esphome compile failed for $config"
               status=1
             fi
             echo "::endgroup::"
