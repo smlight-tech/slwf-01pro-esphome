@@ -9,6 +9,10 @@
   "dependencyDashboardTitle": "Dependency Dashboard",
   "dependencyDashboard": true,
   "dependencyDashboardApproval": true,
+  "ignorePaths": [
+    "**/slwf01pro_*.yaml",
+    "**/manifest*.json"
+  ],
   "prCreation": "status-success",
   "prConcurrentLimit": 5,
   "prHourlyLimit": 2,
