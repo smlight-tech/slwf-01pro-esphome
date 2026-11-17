@@ -53,10 +53,11 @@ api:
     - service: follow_me
       variables:
         temperature: float
+        use_fahrenheit: bool
       then:
         midea_ac.follow_me:
           temperature: !lambda "return temperature;"
-          use_fahrenheit: true
+          use_fahrenheit: !lambda "return use_fahrenheit;"
           beeper: false
 # Required by the http_request update platform.
 # ESP8266 has no RAM for CA certs, so SSL verification is disabled.
