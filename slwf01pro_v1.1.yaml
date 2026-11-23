@@ -3,7 +3,7 @@ esphome:
   name_add_mac_suffix: true
   project:
     name: SMLIGHT.SLWF-01Pro
-    version: "2.7"
+    version: "2.8"
 
 esp8266:
     board: esp12e
@@ -71,7 +71,6 @@ climate:
       - SILENT
       - TURBO
     supported_presets:          # All capabilities in this section detected by autoconf.
-      - ECO
       - BOOST
       - SLEEP                   # This capability is always used.
     custom_presets:             # All capabilities in this section detected by autoconf.
