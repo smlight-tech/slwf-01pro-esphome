@@ -24,7 +24,7 @@ esphome:
   # configuration and updates.
   project:
     name: SMLIGHT.SLWF-01Pro
-    version: "2.9"
+    version: "2.10"
 
 esp8266:
     board: esp12e
@@ -112,6 +112,10 @@ climate:
     num_attempts: 3                                   # Optional
     autoconf: true                                   # Autoconfigure most options.
     beeper: true                                      # Beep on commands.
+    # This unit accepts the display toggle over UART but does not advertise
+    # light control in its 0xB5 capabilities report, so AUTO (with the IR
+    # remote_transmitter below configured) would route the toggle to IR.
+    display_control: UART
     visual:                                           # Optional. Example of visual settings override.
       min_temperature: "${visual_min_temperature}"    # min: 17
       max_temperature: "${visual_max_temperature}"    # max: 30
